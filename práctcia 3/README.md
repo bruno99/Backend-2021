@@ -1,4 +1,3 @@
-# Ricky Morty API Data to Mongo
 
 ## Install dependencies.
 
