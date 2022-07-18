@@ -48,6 +48,29 @@ printDep(persona1);
 
 //---------------------------------
 console.log("start");
-setTimeout(() =>{console.log("dentro del timeout")}, 1000); //stetimeout es como un wait 
+//Una promesa es que cuando yo programo en JS me promete que va a hacer algo, y al final del programa se hace esa promesa
+//esto me promete que algo va a ser un string en algún momento (puede o no cumplirse)
+//si se cumple hace lo que tiene que hacer, y si no ha pasasado algo
+const a: Promise<string> = new Promise ((resolve, reject) => {
+    setTimeout(
+        () =>{console.log("dentro del timeout")}
+        , 1000
+        ); //stetimeout es como un wait 
+});//la promesa resuelve con un string
+console.log("tres");
+//cuando se resuelva coge el valor con el que se ha resuelto y damelo por pantalla
+a.then(valor_resuelto => console.log(valor_resuelto));
+console.log("finish");
+//EJEMPLO CON REJECT
+console.log("start");
+//reject controlado 
+new Promise((resolve, reject) => {
+    reject("error");
+}).then(valor_resuelto => console.log(valor_resuelto)).
+    catch(e => console.log(`error: ${e}`));
+
+console.log("tres");
+
+
 console.log("finish");
 
