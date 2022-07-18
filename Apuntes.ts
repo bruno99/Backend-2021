@@ -68,9 +68,52 @@ new Promise((resolve, reject) => {
     reject("error");
 }).then(valor_resuelto => console.log(valor_resuelto)).
     catch(e => console.log(`error: ${e}`));
-
 console.log("tres");
-
-
 console.log("finish");
+//--------------------------------
+console.log("start");
+//es asincrono, es decir que par dar la vuelta no espera y sale todos los números de golpe
+for(let i:number =0; i<10; i++){
+  setTimeout(()=>{
+    console.log(i)
+}, 1000);
+}
+//--------------------------------
+let coordenadas: string = "";
+//me devuelce una promesa que resuelve con un string 
+const pedir_gps = (direccion: string) => {
+    return new Promise<string>(resolve => {
+        setTimeout(() => resolve ("Las coordenadas GPS"), 1000);
+    })
+}
+
+const pedir_tiempo = (coordenadas_gps: string) => {
+    return new Promise<string>(resolve => {
+        setTimeout(() => resolve ("El tiempo"), 1000);
+    })
+}
+//llamo a la funcion y cuando lo resuelve asigna el valor resuelto a coordenadas
+//tengo que esperar a las coordenadas para poder pedir el tiempo (encadenado)
+pedir_gps("mi_direccion")
+.then((r) => pedir_tiempo(r))
+.then(s=> console.log(s));
+//asi no se puede hacer porque no tenemos coordenadas aún, hay que hacerlo como arriba
+pedir_tiempo(coordenadas).then(s => console.log(`el tiempo es ${s}`));
+//---------------------------------
+//Array de promesas que me resuelven con una cadena de texto
+const arrProm: Array<Promise<string>> = [];
+//lleno el array de promesas
+arrProm.push(new Promise<string>(
+    resolve => setTimeout(() => resolve("promesa 1"), 3000)));
+arrProm.push(new Promise<string>(
+    resolve => setTimeout(() => resolve("promesa 2"), 2000)));
+arrProm.push(new Promise<string>(
+    resolve => setTimeout(() => resolve("promesa 3"), 1000)));
+
+//cuando se resuelvan todas las promesas de este array capturame el resultado
+Promise.all(arrProm).then((res:Array<string>) => {
+    res.forEach(r => console.log(r)); //en 3 segundos se imprimen promesas 1 2 3 en orden en el que yo envío
+})
+
+
 
