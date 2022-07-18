@@ -1,3 +1,5 @@
+//-----------------
+
 type Person = {
     nombre: string;
     edad: number;
@@ -43,3 +45,9 @@ const printDep = (p: any): void => {
     }
 }
 printDep(persona1);
+
+//---------------------------------
+console.log("start");
+setTimeout(() =>{console.log("dentro del timeout")}, 1000); //stetimeout es como un wait 
+console.log("finish");
+
