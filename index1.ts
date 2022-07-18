@@ -2,7 +2,7 @@ import { MongoClient } from "mongodb"
 
 //modo atiguo, usar import mejor 
 //const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://bruno:Nebrija52@cluster-nebrija.loorm.mongodb.net/BrunoDB?retryWrites=true&w=majority";
+const uri = "mongodb+srv://bruno:<password>@cluster-nebrija.loorm.mongodb.net/BrunoDB?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
 client.connect().then(() => {
     console.log("Connected to DB");
