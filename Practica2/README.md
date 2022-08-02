@@ -1,8 +1,13 @@
 Con una base de datos creada tomando como punto de partida el siguiente ejemplo https://github.com/Nebrija-Programacion/web-backend/tree/master/example/rickmorty2mongo
 Se pide realizar una API REST utilizando Node.js con Typescript y el servidor Express. La práctica debe trabajar con una base de datos Mongo alojada en Mongo Atlas.
+
+
 Endpoints
+
 GET /status
+
 Indica que el servidor esta OK y listo para recibir peticiones.
+
 Status: 200 Body: "OKProgramacion-I"
 GET /characters
 Devuelve un objeto con todos los personajes de la serie
