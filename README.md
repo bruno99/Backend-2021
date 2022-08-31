@@ -11,3 +11,11 @@ npm install -s mongodb
 npm install -s axios
 
 Ejecutar : npm run start
+
+
+
+npm init --yes
+npm install apollo-server graphql
+npm install -D ts-node typescript
+npm i mongodb
+npx ts-node .\src\server.ts
